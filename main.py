@@ -6,7 +6,7 @@ import firebase_admin
 from firebase_admin import firestore
 
 
-# Aqui iniciamos a API
+# start da  API
 app = Flask(__name__)
 CORS(app)
 API = Api(app)
@@ -19,7 +19,7 @@ def start_request():
     if not request.endpoint:
         return 'Sorry, Nothing at this URL.', 404
 
-# Nossa classe principal
+#classe principal
 class Index(Resource):
     """ class return API index """
 
@@ -33,9 +33,7 @@ API.add_resource(Index, '/', endpoint='index')
 
 
 if __name__ == '__main__':
-    # Isso é utilizado somente para executar a aplicação local. Quando
-    # realizarmos o deploy para o Google App Engine, o webserver deles ira
-    # iniciar a aplicação de outra forma
+
     app.run(host='127.0.0.1', port=8080, debug=True)
 # [END gae_python37_app]
 
