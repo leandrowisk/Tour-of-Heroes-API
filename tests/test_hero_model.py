@@ -1,7 +1,6 @@
 import unittest
 from mock import patch
 from mockfirestore import MockFirestore
-from modules.main import MainModule
 from models.hero import Hero
 
 
@@ -49,20 +48,20 @@ class TestHeroModel(unittest.TestCase):
         return hero
 
     def test_get_heroes(self):
-            """Test get heroes"""
-            # Aqui vamos fazer um loop e criar 20 herois
-            # E o nome vai ser hero + index do loop, ex: "Hero 1"
-            for index in range(1, 21):
-                self.create_hero('Hero {0}'.format(index), 'marvel')
+        """Test get heroes"""
+        # Aqui vamos fazer um loop e criar 20 herois
+        # E o nome vai ser hero + index do loop, ex: "Hero 1"
+        for index in range(1, 21):
+            self.create_hero('Hero {0}'.format(index), 'marvel')
 
-            # Aqui vamos chamar o metodo para obter os herois
-            heroes = Hero.get_heroes()
-            # Percorrendo todos os herois e transformando eles em dict(json)
-            heroes_dict = [hero.to_dict() for hero in heroes]
-            # Consultando a quantidade de itens que retornou
-            self.assertEqual(len(heroes_dict), 16)
-            for hero in heroes_dict:
-                self.assertTrue(hero['name'].startswith('Hero'))
+        # Aqui vamos chamar o metodo para obter os herois
+        heroes = Hero.get_heroes()
+        # Percorrendo todos os herois e transformando eles em dict(json)
+        heroes_dict = [hero.to_dict() for hero in heroes]
+        # Consultando a quantidade de itens que retornou
+        self.assertEqual(len(heroes_dict), 16)
+        for hero in heroes_dict:
+            self.assertTrue(hero['name'].startswith('Hero'))
 
     def test_delete_hero(self):
         """Test delete hero"""

@@ -1,6 +1,7 @@
 import uuid
 from modules.main import MainModule
 
+
 class Hero(object):
 
     _collection_name = 'Hero'
