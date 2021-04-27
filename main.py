@@ -5,7 +5,6 @@ from flask_cors import CORS
 import firebase_admin
 from firebase_admin import firestore
 
-
 # start da  API
 app = Flask(__name__)
 CORS(app)
