@@ -6,6 +6,7 @@ import firebase_admin
 
 from views.hero import HeroesHandler
 from views.hero import HeroHandler
+from views.top_heroes import TopHeroesHandler
 
 
 # start da  API
@@ -43,6 +44,8 @@ API.add_resource(Index, '/', endpoint='index')
 API.add_resource(HeroesHandler, '/heroes', endpoint='heroes')
 #rota da segunda classe da view
 API.add_resource(HeroHandler, '/hero/<hero_id>', endpoint='hero')
+#rota dos top heroes da classe top_heroes
+API.add_resource(TopHeroesHandler, '/top-heroes', endpoint='top-heroes')
 
 if __name__ == '__main__':
 
