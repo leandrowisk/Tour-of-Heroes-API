@@ -18,3 +18,4 @@ class HeroModule(object):
         hero.universe = params['universe']
         hero.save()
         return hero
+

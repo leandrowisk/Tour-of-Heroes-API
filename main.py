@@ -5,6 +5,8 @@ from flask_cors import CORS
 import firebase_admin
 
 from views.hero import HeroesHandler
+from views.hero import HeroHandler
+
 
 # start da  API
 app = Flask(__name__)
@@ -39,6 +41,8 @@ API.add_resource(Index, '/', endpoint='index')
 
 #rota apontando para a classe de hero da view
 API.add_resource(HeroesHandler, '/heroes', endpoint='heroes')
+#rota da segunda classe da view
+API.add_resource(HeroHandler, '/hero/<hero_id>', endpoint='hero')
 
 if __name__ == '__main__':
 

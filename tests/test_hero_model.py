@@ -14,6 +14,7 @@ class TestHeroModel(unittest.TestCase):
             'modules.main.MainModule.get_firestore_db', return_value=self.mock_db)
         self.patcher.start()
 
+
     def tearDown(self):
         """O tearDown é chamado no final de cada teste"""
         self.patcher.stop()
@@ -33,10 +34,7 @@ class TestHeroModel(unittest.TestCase):
         self.assertEqual(hero.name, 'Superman')
         self.assertEqual(hero.id, new_hero.id)
 
-    def test_get_hero_not_found(self):
-        """Test get hero with id not found"""
-        hero = Hero.get_hero('ID_TEST')
-        self.assertIsNone(hero)
+
 
     @staticmethod
     def create_hero(hero_name, universe):
@@ -72,3 +70,9 @@ class TestHeroModel(unittest.TestCase):
 
         # Consultando se o heroi foi mesmo excluido
         self.assertIsNone(Hero.get_hero(hero.id))
+
+    def test_get_hero_not_found(self):
+        hero=Hero.get_hero('ID_TEST')
+        self.assertIsNone(hero)
+
+
