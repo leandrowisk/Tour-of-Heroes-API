@@ -66,3 +66,13 @@ class Hero(object):
         return MainModule.get_firestore_db().collection(
             cls._collection_name).limit(20).stream()
 
+    @classmethod
+    def get_search_hero(cls,hero_name):
+        heroes= MainModule.get_firestore_db().collection(
+              cls._collection_name).where('name', '==',hero_name).limit(10).stream()
+
+        if hero_name:
+            return heroes
+        return None
+
+
